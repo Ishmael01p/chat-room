@@ -24,7 +24,7 @@ def generate_unique_code(length):
 def home():
     session.clear()
     if request.method == "POST":
-        topic = request.form.get("topic")
+        # roomname = request.form.get("roomname")
         name = request.form.get("name")
         code = request.form.get("code")
         join = request.form.get("join", False)
@@ -45,6 +45,7 @@ def home():
         
         session["room"] = room
         session["name"] = name 
+        # session["roomname"] = roomname
         return redirect(url_for("room"))
  
 
@@ -76,6 +77,7 @@ def message(data):
 def connect(auth):
     room = session.get("room")
     name = session.get("name")
+    # roomname = session.get("roomname")
     if not room or not name:
         return
     if room not in rooms:

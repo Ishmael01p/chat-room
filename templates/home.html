@@ -1,9 +1,13 @@
 {% extends 'base.html' %} {% block content %} 
 <form method="post" class="buttons">
-    <h3>Enter The Stock Prediction Chat Room</h3>
+    <h3>Stock Prediction Chat Rooms</h3>
     <div>
-        <label>Name:</label>
+        <label>Your Name:</label>
         <input type="text" placeholder="Enter a name!" name="name" value ="{{name}}"/>
+    </div>
+    <div>
+        <label>Room Name:</label>
+        <input type="text" placeholder="Enter a room name!" name="roomname" value="{{roomname}}"/>
     </div>
     <div class="join">
         <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
