@@ -17,3 +17,4 @@ redis==5.0.8
 simple-websocket==1.0.0
 Werkzeug==3.0.4
 wsproto==1.2.0
+redis
