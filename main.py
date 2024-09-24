@@ -5,16 +5,10 @@ import random
 from string import ascii_uppercase
 from dotenv import load_dotenv
 
-# app = Flask(__name__)
-# app.config["SECRET_KEY"] = "jsdviIJIJ"
-# socketio = SocketIO(app)
-
 app = Flask(__name__)
 load_dotenv()
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-socketio = SocketIO(app)
-
-# socketio = SocketIO(app, message_queue=os.getenv("REDIS_URL"))
+socketio = SocketIO(app, message_queue=os.getenv("REDIS_URL"))
 
 rooms= {}
 
@@ -111,8 +105,6 @@ def disconnect():
 
     send({"name": name, "message": "has left the room"}, to=room)
     print(f"{name} has left the room {room}")
-
-
 
 
 if __name__ == "__main__":
