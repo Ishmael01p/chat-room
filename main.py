@@ -9,6 +9,8 @@ app = Flask(__name__)
 load_dotenv()
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app, message_queue=os.getenv("REDIS_URL"))
+# socketio = SocketIO(app, message_queue=os.getenv("REDIS_URL", "redis://localhost:6379"))
+
 
 rooms= {}
 
