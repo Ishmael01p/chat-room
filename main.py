@@ -34,7 +34,7 @@ def generate_unique_code(length):
 def home():
     session.clear()
     if request.method == "POST":
-        # roomname = request.form.get("roomname")
+        roomname = request.form.get("roomname")
         name = request.form.get("name")
         code = request.form.get("code")
         join = request.form.get("join", False)
@@ -55,7 +55,7 @@ def home():
         
         session["room"] = room
         session["name"] = name 
-        # session["roomname"] = roomname
+        session["roomname"] = roomname
         return redirect(url_for("room"))
  
 
@@ -114,5 +114,6 @@ def disconnect():
     print(f"{name} has left the room {room}")
 
 if __name__ == "__main__":
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True, use_reloader=False, log_output=True)
+
 
