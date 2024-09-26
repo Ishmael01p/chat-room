@@ -1,12 +1,12 @@
 import os
+from gevent import monkey
+monkey.patch_all()
+
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_socketio import join_room, leave_room, send, SocketIO
 import random
 from string import ascii_uppercase
 from dotenv import load_dotenv
-from flask_cors import CORS
-
-
 
 
 
@@ -15,7 +15,7 @@ load_dotenv()
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app, message_queue=os.getenv("REDIS_URL"))
 # socketio = SocketIO(app, message_queue=os.getenv("REDIS_URL", "redis://localhost:6379"))
-CORS(app)
+
 
 rooms= {}
 
@@ -113,6 +113,6 @@ def disconnect():
     send({"name": name, "message": "has left the room"}, to=room)
     print(f"{name} has left the room {room}")
 
-
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+
