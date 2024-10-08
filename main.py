@@ -114,6 +114,7 @@ def disconnect():
     print(f"{name} has left the room {room}")
 
 if __name__ == "__main__":
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True, use_reloader=False, log_output=True)
+    debug_mode = os.getenv('FLASK_DEBUG', 'False') == 'True'
+    socketio.run(app, host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True, use_reloader=False, log_output=True)
 
 
