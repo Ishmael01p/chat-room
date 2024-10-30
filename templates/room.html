@@ -45,7 +45,7 @@
     message.value = "";
   };
 </script>
-{% for msg in messages %}
+{% for msg in messages %} <!-- Jenga for loop -->
 <script type="text/javascript">
   createMessage("{{msg.name}}", "{{msg.message}}");
 </script>
