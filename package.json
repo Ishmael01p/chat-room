@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "3": "^2.1.0",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "name": "chat-room",
+  "version": "1.0.0",
+  "description": "- To run the current main development of the app on your local device click -> Code -> Copy the url to clipboard for the HTTPS link -> clone the repo and run 'python main.py' in your terminal\r - The main branch current has all of the features allowing users to create and join rooms, and to send timestamped messages in chat rooms\r - These are one of the core features of this project, and with eventually be a small windowed section each ETF or Stock\r ## Branch stage 1 - Offically created - not yet Implemented - Must remove all of the content fromthe chatrooms folder - for main.py to work!\r - The goal of branch stage 1 is to connect the ETFs and Stocks to the page in away forcing users to pick a stock or ETF before they create a chat\r     - These will initialize be preselected Stocks and ETFs\r     - API calls from :https://www.alphavantage.co/\r     - Held in a database currently using SQlite may eventually use SQLAchlemy - Utilizing Node.js\r     - Display the stocks market graphs with Chart.js\r - Connecting the proper Stock or ETF with :https://www.alphavantage.co/\r - Allowing public chats to be displayed\r - Creating a functional leave chat button \r - Fix small issue with timestamps that display incorrect times for new individuals entering chats",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

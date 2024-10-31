@@ -1,0 +1,54 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+/* Graph Container */
+.graph-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    padding: 1em;
+}
+
+.graph-item {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 2em;
+    text-align: center;
+    font-size: 1.2em;
+}
