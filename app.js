@@ -15,7 +15,6 @@ app.use(bodyParser.json());
 // -- Just retrieve data does not access db -- //
 
 // const fetchIntradayTimeSeries = async (symbol, time)  => {
-//     const apiKey =  'WUGJJHDSGC4E2TRW';
 //     // const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=30min&apikey=${apiKey}`;
 //     const url2 = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=z${time}&apikey=${apiKey}`;
 
