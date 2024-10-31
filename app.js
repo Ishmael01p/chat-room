@@ -2,10 +2,11 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const res = require("express/lib/response")
 const sqlite3 = require('sqlite3').verbose();
-// const fetch = require('node-fetch');
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
 const app = express();
 const url = require('url')
-const db = new sqlite3.Database("./stock-market.db", sqlite3.OPEN_READWRITE, (err) => {
+const db = new sqlite3.Database("./STOCK.db", sqlite3.OPEN_READWRITE, (err) => {
     if (err) return console.error(err.message);
 });
 
@@ -39,7 +40,6 @@ app.use(bodyParser.json());
 
 // -- Access to DB -- //
 
-const apiKey = "DYgHgzOOE35mbPGZlwvUf3m6M1FWhq90";
 
 const getDateRange = (days) => {
     const toDate = new Date();
@@ -63,7 +63,32 @@ app.post("/fetch-and-save", async (req, res) => {
         });
     }
 
-    const { from, to } = getDateRange(10); // Past 10 days
+    // Create the new table with 'symbol' if it does not exist
+    const createTableSQL = `
+        CREATE TABLE IF NOT EXISTS STOCKS (
+            ID INTEGER PRIMARY KEY,
+            symbol TEXT,
+            date TEXT UNIQUE,
+            open REAL,
+            high REAL,
+            low REAL,
+            close REAL,
+            volume INTEGER
+        )
+    `;
+    db.run(createTableSQL, (err) => {
+        if (err) {
+            console.error("Error creating table:", err.message);
+            return res.json({
+                status: 500,
+                success: false,
+                error: "Failed to create new table."
+            });
+        }
+    });
+
+    // Set the date range for the last 10 days
+    const { from, to } = getDateRange(10);
     const url = `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/${multiplier}/${timespan}/${from}/${to}?adjusted=true&sort=asc&apiKey=${apiKey}`;
     console.log("Fetching data from URL:", url);
 
@@ -81,16 +106,17 @@ app.post("/fetch-and-save", async (req, res) => {
                 volume: record.v
             }));
 
-            const sql = `INSERT INTO Stocks_Data (date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?)`;
+            // Insert data into the new table, including 'symbol'
+            const sql = `INSERT OR IGNORE INTO STOCKS (symbol, date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?, ?)`;
 
             records.forEach((record) => {
-                db.run(sql, [record.date, record.open, record.high, record.low, record.close, record.volume], (err) => {
+                db.run(sql, [symbol, record.date, record.open, record.high, record.low, record.close, record.volume], (err) => {
                     if (err) {
                         console.error("Data insertion error:", err.message);
                     }
                 });
             });
-            console.log("Data successfully inserted into the DB");
+            console.log("Data successfully inserted into the new table");
             return res.json({ status: 200, success: true, data: records });
         } else {
             console.error("Error fetching data:", data);
@@ -105,5 +131,47 @@ app.post("/fetch-and-save", async (req, res) => {
         });
     }
 });
+
+app.get("/get-stock", (req, res) => {
+    const symbol = req.query.symbol;
+
+    if (!symbol) {
+        return res.json({
+            status: 400,
+            success: false,
+            error: "Stock symbol is required."
+        });
+    }
+
+    const sql = `SELECT * FROM STOCKS WHERE symbol = ?`;
+    db.all(sql, [symbol], (err, rows) => {
+        if (err) {
+            console.error("Database query error:", err.message);
+            return res.json({
+                status: 500,
+                success: false,
+                error: "Failed to fetch stock data."
+            });
+        }
+
+        if (rows.length === 0) {
+            return res.json({
+                status: 404,
+                success: false,
+                message: "No data found for the specified stock symbol."
+            });
+        }
+
+        console.log("Data successfully retrieved from the table");
+        return res.json({
+            status: 200,
+            success: true,
+            data: rows
+        });
+        
+    });
+});
+
+
 
 app.listen(3000)

@@ -12,12 +12,13 @@
 
 // -- Start of Stock-Market DB -- // - DataBase has been created!
 const sqlite = require('sqlite3').verbose();
-const db = new sqlite.Database('./stock-market.db', sqlite.OPEN_READWRITE, (err) => {
+const db = new sqlite.Database('./STOCK.db', sqlite.OPEN_READWRITE, (err) => {
     if (err) return console.error(err.message);
 });
 
-const sql = `CREATE TABLE IF NOT EXISTS Stocks_Data(
+const sql = `CREATE TABLE IF NOT EXISTS STOCKS(
     ID INTEGER PRIMARY KEY,
+    symbol TEXT,
     date TEXT UNIQUE, 
     open REAL,
     high REAL,
@@ -25,6 +26,6 @@ const sql = `CREATE TABLE IF NOT EXISTS Stocks_Data(
     close REAL,
     volume INTEGER
 )`;
- db.run(sql)
+db.run(sql)
 
 
