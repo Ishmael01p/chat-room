@@ -6,10 +6,10 @@
 ## Branch stage 1 - Offically created - not yet Implemented - Must remove all of the content fromthe chatrooms folder - for main.py to work!
 - The goal of branch stage 1 is connect our js to the API 
     - These will initialize be preselected Stocks and ETFs
-    - API calls from :https://www.alphavantage.co/
+    - API calls from :https://polygon.io/docs/stocks/getting-started
     - Held in a database currently using SQlite may eventually use SQLAchlemy - Utilizing Node.js
     - Display the stocks market graphs with Chart.js - May get pushed to branch 2
-- Connecting the proper Stock or ETF with :https://www.alphavantage.co/
+- Connecting the proper Stock or ETF with :https://polygon.io/docs/stocks/getting-started
 - Allowing public chats to be displayed
 - Creating a functional leave chat button 
 - Fix small issue with timestamps that display incorrect times for new individuals entering chats
@@ -21,6 +21,7 @@
 
 ## Building Notes - 
 - Notes of what each JS file should do current
+    - Changing API from  
     - start.js should be responsible for responding to user input on the frontend - 
     - home.js should be responsible for the api calls
     - app.js should connect create and connect to the SQlite db - Node.js / Potentially Express.js
@@ -36,4 +37,4 @@
     - Express.js - https://expressjs.com/
 
 ## API info 
-- https://www.alphavantage.co/documentation/:
+- https://polygon.io/docs/stocks/getting-started
