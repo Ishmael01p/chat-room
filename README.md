@@ -17,6 +17,7 @@
 ## Branch stage 2 - Cnonect API data to SQlite database 
 - The main goal of this branch is to have somewhere to store the data from  the API calls
     - Held in a database currently using SQlite may eventually use SQLAchlemy - Utilizing Node.js
+    - In order to start a file type in clear terminal Node {filename.js} - start Node server
 
 ## Building Notes - 
 - Notes of what each JS file should do current
