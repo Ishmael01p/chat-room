@@ -12,33 +12,6 @@ const db = new sqlite3.Database("./STOCK.db", sqlite3.OPEN_READWRITE, (err) => {
 
 app.use(bodyParser.json());
 
-// -- Just retrieve data does not access db -- //
-
-// const fetchIntradayTimeSeries = async (symbol, time)  => {
-//     // const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=30min&apikey=${apiKey}`;
-//     const url2 = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=z${time}&apikey=${apiKey}`;
-
-//     try {
-//         const response = await fetch(url2);
-//         const data = await response.json();
-//         const timeSeriesKey = `Time Series (${time})`;
-//         if (data[timeSeriesKey]) {
-//             return data[timeSeriesKey];
-//         } else {
-//             console.error("Error fetching data:", data);
-//         }
-//     } catch (error) {
-//         console.error("Fetch error:", error);
-//     }
-// };
-
-// (async () => {
-//     const data = await fetchIntradayTimeSeries('SPY', '30min');
-//     console.log(data);  // This will log the actual stock data if the API call succeeds
-// })();
-
-// -- Access to DB -- //
-
 
 const getDateRange = (days) => {
     const toDate = new Date();
