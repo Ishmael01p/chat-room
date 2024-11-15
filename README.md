@@ -3,7 +3,7 @@
 - To run the current chatrooms development of the app on your local device click -> Code -> Copy the url to clipboard for the HTTPS link -> clone the repo and run 'python chatrooms/main.py' in your terminal
 - The main branch current has all of the features allowing users to create and join rooms, and to send timestamped messages in chat rooms
 - These are one of the core features of this project, and with eventually be a small windowed section each ETF or Stock
-## Branch stage 1 - Offically created - Implemented - Merging to main soon
+## Branch stage 1 - Offically created - Implemented and Deleted
 - The goal of branch stage 1 is connect our js to the API - Connecting API data to SQlite database 
     - These will initialize be preselected Stocks and ETFs
     - API calls from :https://polygon.io/docs/stocks/getting-started
