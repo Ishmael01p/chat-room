@@ -1,0 +1,42 @@
+/* Graph.css */
+.graph {
+    padding: 1em;
+  }
+  
+  .graph-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increase min size */
+    gap: 1.5em; /* Add more spacing between graphs */
+    margin: 1em 0;
+  }
+  
+  .graph-item {
+    background-color: #f4f4f4;
+    border: 2px solid #ccc; /* Slightly thicker border for better visibility */
+    padding: 3em; /* Increase padding for larger content area */
+    text-align: center;
+    font-size: 1.5em; /* Larger text */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
+    transition: transform 0.2s ease; /* Add a hover effect */
+  }
+
+  .controls {
+    margin-top: 1em;
+  }
+  
+  .controls button {
+    padding: 0.5em 1em;
+    margin-right: 0.5em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .graph-item:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
