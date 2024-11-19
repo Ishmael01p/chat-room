@@ -1,21 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 
-function Graph({ data }) {
+function Graph({ data, title }) {
   const chartRef = useRef(null);
 
   useEffect(() => {
     const chartInstance = echarts.init(chartRef.current);
 
-    // Transform the data
+    // Transform the data for the line chart
     const lineData = data.map((item) => ({
-      time: new Date(item.t).toLocaleTimeString(), // Format time for the X-axis
-      price: item.c, // Use close price for the Y-axis
+      time: new Date(item.t).toLocaleTimeString(), // X-axis: Time
+      price: item.c, // Y-axis: Price
     }));
 
     const option = {
       title: {
-        text: 'Stock Price Over Time',
+        text: title, // Dynamic title
         left: 'center',
       },
       tooltip: {
@@ -28,51 +28,46 @@ function Graph({ data }) {
       xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: lineData.map((item) => item.time), // X-axis: Time
+        data: lineData.map((item) => item.time),
         axisLabel: {
-          formatter: (value) => value, // Show formatted time
+          formatter: (value) => value,
         },
       },
       yAxis: {
         type: 'value',
         scale: true,
         axisLabel: {
-          formatter: (value) => `$${value.toFixed(2)}`, // Show prices with dollar signs
+          formatter: (value) => `$${value.toFixed(2)}`,
         },
       },
       series: [
         {
           name: 'Price',
           type: 'line',
-          smooth: true, // Smooth line like Robinhood
-          data: lineData.map((item) => [item.time, item.price]), // Line chart data
+          smooth: true,
+          data: lineData.map((item) => [item.time, item.price]),
           lineStyle: {
             width: 2,
-            color: '#00C853', // Green line color
+            color: '#FF5722', // Customize line color
           },
           areaStyle: {
-            color: 'rgba(0, 200, 83, 0.1)', // Light green shading below the line
+            color: 'rgba(255, 87, 34, 0.1)', // Shading under the line
           },
-          symbol: 'none', // No symbols at data points
+          symbol: 'none',
         },
       ],
     };
 
     chartInstance.setOption(option);
 
-    // Cleanup on unmount
     return () => {
       chartInstance.dispose();
     };
-  }, [data]); // Re-render the chart if the data changes
+  }, [data, title]);
 
   return (
     <div>
-      <h2>Stock Chart</h2>
-      <div
-        ref={chartRef}
-        style={{ width: '100%', height: '400px', marginTop: '20px' }}
-      ></div>
+      <div ref={chartRef} style={{ width: '100%', height: '400px', marginTop: '20px' }}></div>
     </div>
   );
 }

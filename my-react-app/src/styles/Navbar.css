@@ -1,8 +1,8 @@
 /* NavBar.css */
 nav {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
+    background-color: #fff;
+    color: #000;
+    padding-left: 1.5em ;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,6 +15,7 @@ nav {
   nav ul {
     list-style: none;
     display: flex;
+    align-items: center
   }
   
   nav ul li {
@@ -22,8 +23,52 @@ nav {
   }
   
   nav ul li a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
     font-size: 1em;
+    font-weight: 600;
   }
+
+  .nav-container1 {
+    margin-left: -8.5in; /* Moves the container to the left by 1 rem */
+    padding: 0; /* Optional: Removes padding if needed */
+    list-style: none; /* Optional: Removes bullet points */
+  }
+  
+  .nav-container1 li {
+    display: inline; /* Ensures the list items are inline if they should be horizontally aligned */
+    margin-right: 1rem; /* Optional: Adds spacing between links */
+  }
+
+/* Search bar container */
+.nav-search-container {
+  margin-left: 1em;
+  flex-grow: 1; /* Allows the search bar to fill available space */
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Search bar input */
+.nav-search-input {
+  width: 150px;
+  padding: 0.5em 1em;
+  border-radius: 25px; /* Rounded corners */
+  border: 1px solid #ccc; /* Subtle border */
+  outline: none;
+  transition: box-shadow 0.3s ease-in-out;
+  font-size: 1em;
+  color: #000;
+  background-color: #f9f9f9;
+}
+
+.nav-search-input::placeholder {
+  color: #000;
+  font-weight: 600;
+}
+
+.nav-search-input:focus {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow on focus */
+  border-color: #000; /* Highlight border on focus */
+}
+
   

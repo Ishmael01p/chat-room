@@ -1,17 +1,19 @@
 /* Graph.css */
 .graph {
     padding: 1em;
+    color: #000;
+    padding-top: 2em;
   }
   
   .graph-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increase min size */
     gap: 1.5em; /* Add more spacing between graphs */
-    margin: 1em 0;
+    margin: 2em 0;
   }
   
   .graph-item {
-    background-color: #f4f4f4;
+    background-color: #fff;
     border: 2px solid #ccc; /* Slightly thicker border for better visibility */
     padding: 3em; /* Increase padding for larger content area */
     text-align: center;
@@ -32,7 +34,7 @@
   }
   
   .controls button:disabled {
-    background-color: #ccc;
+    background-color: #000;
     cursor: not-allowed;
   }
 

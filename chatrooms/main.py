@@ -10,6 +10,8 @@ app = Flask(__name__) # name of flask application
 app.config["SECRET_KEY"] = os.getenv("FLASK_SECRET_KEY") # Will need to be changed for production for security reason
 socketio = SocketIO(app)
 
+# run 'python chatrooms/main.py'
+
 rooms = {}
 
 def generate_unique_code(length):
