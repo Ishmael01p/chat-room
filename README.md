@@ -1,8 +1,8 @@
-# Stock-Chat-Room
+# Stock Market Chat Rooms
 ## Main Branch 
-- To run the current chatrooms development of the app on your local device click -> Code -> Copy the url to clipboard for the HTTPS link -> clone the repo and run 'python chatrooms/main.py' in your terminal
-- The main branch current has all of the features allowing users to create and join rooms, and to send timestamped messages in chat rooms
-- These are one of the core features of this project, and with eventually be a small windowed section each ETF or Stock
+- To run the current development of the app on your local device click -> Code -> Copy the url to clipboard for the HTTPS link -> clone the repo and in the terminal run 'cd my-react-app' then 'npm run dev'
+- The main feature of the project currently being worked on API called data that renders as graphs on the frontend using Apache Echarts
+- The main branch current has all of the features allowing users to create and join rooms, and to send timestamped messages in chat rooms - (feature is current in chatrooms folder)
 ## Branch stage 1 - Offically created - Implemented and Deleted
 - The goal of branch stage 1 is connect our js to the API - Connecting API data to SQlite database 
     - These will initialize be preselected Stocks and ETFs
