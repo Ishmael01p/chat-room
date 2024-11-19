@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
+import '../styles/Graph.css'
 
 function Graph({ data, title }) {
   const chartRef = useRef(null);
@@ -67,7 +68,7 @@ function Graph({ data, title }) {
 
   return (
     <div>
-      <div ref={chartRef} style={{ width: '100%', height: '400px', marginTop: '20px' }}></div>
+      <div ref={chartRef} style={{ width: '100%', height: '500px', marginTop: '20px' }}></div>
     </div>
   );
 }

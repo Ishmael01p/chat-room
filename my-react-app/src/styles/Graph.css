@@ -5,9 +5,10 @@
     padding-top: 2em;
   }
   
-  .graph-container {
+  .chart-container {
+    padding: 1em;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increase min size */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
     gap: 1.5em; /* Add more spacing between graphs */
     margin: 2em 0;
   }

@@ -16,12 +16,15 @@ function NavBar() {
         </div>
           <li><a href="#stocks">Stocks</a></li>
           <li><a href="#etfs">ETFs</a></li>
-          <li><a href="#crypto">Crypto</a></li>
+          <li><a href="#crypto">Crypto</a></li>          
+          <li><a href="#about">About</a></li>
+          <li><a href="#coming-soon">Coming Soon</a></li>
         </ul>
         <ul>
           <li><a href="#sign-in">Sign In</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#coming-soon">Coming Soon</a></li>
+          <li><a href="#sign-u[">Sign Up</a></li>
+
+
         </ul>
         {/* Search bar */}
 
