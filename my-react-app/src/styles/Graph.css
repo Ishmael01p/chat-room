@@ -6,11 +6,13 @@
   }
   
   .chart-container {
-    padding: 1em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 1.5em; /* Add more spacing between graphs */
-    margin: 2em 0;
+    gap: 5em; /* Add more spacing between graphs */
+
+    margin: 3em 0;
   }
   
   .graph-item {
