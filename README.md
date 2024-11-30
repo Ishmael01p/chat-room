@@ -1,11 +1,10 @@
 # Stock Market Chat Rooms
 ## Overview
 - Web application that uses a React frontend + Apache Echarts to display Stock market data that come from an api call. When a user selects a stocks they will have the ability to chat in real time will others using chatrooms implemented with Flask and Socketio.
-##How to run?
-
-
-
-
+### How to run?
+      Run the following command in a seperate terminal simultaneously:
+    - "cd  my-react-app"
+    - "npm run dev"
 ## Cloning Repo Help + Documentation
 - Documentation Links:
     - Apache Echarts - https://echarts.apache.org/en/feature.html
